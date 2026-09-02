@@ -90,7 +90,7 @@
             justify-content: center;
             overflow: hidden;
             border: 2px solid var(--gold-color);
-            background: url('b96e8eddb946a5f44aa3d2a50733dfbd.jpg') center/cover no-repeat;
+            background: url('photo1.jpg') center/cover no-repeat;
         }
 
         .bf-sticker { position: absolute; z-index: 6; font-size: 0.85rem; font-family: 'Caveat', cursive; color: #fff; background: rgba(0,0,0,0.6); padding: 3px 8px; border-radius: 8px; border: 1px solid var(--gold-color); }
@@ -169,7 +169,7 @@
 </head>
 <body>
 
-    <audio id="birthdaysong.mp3" loop></audio>
+    <audio id="bg-music" src="birthdaysong.mp3" loop preload="auto"></audio>
 
     <!-- INTRO STAGE (CURTAINS OVERLAY) -->
     <div id="curtain-overlay">
@@ -305,7 +305,7 @@ Aur haan... comeback hamara bhi hoga 😎✨</p>
                 <video controls id="video-1" onplay="pauseBgMusic()" onended="playBgMusic()"><source src="video1.mp4" type="video/mp4"></video>
             </div>
             <p class="calligraphy-red">Hey, remember, we promised to watch Avengers: Doomsday together, so don’t break that promise later. 😌 After all, even the Avengers have already wished you now, so there’s no backing out! 😂❤️ </p>
-            <div style="text-align:center;"><button class="giant-btn" onclick="nextBox(8, 'music8.mp3')">🎬</button></div>
+            <div style="text-align:center;"><button class="giant-btn" onclick="nextBox(8, 'birthdaysong.mp3')">🎬</button></div>
         </div>
 
         <!-- BOX 8: Video 2 -->
@@ -315,7 +315,7 @@ Aur haan... comeback hamara bhi hoga 😎✨</p>
                 <video controls id="video-2" onplay="pauseBgMusic()" onended="playBgMusic()"><source src="video2.mp4" type="video/mp4"></video>
             </div>
             <p class="calligraphy-red">Yrr mujhse jo bhi galti hui h maaf kar do mujhe plss...Birthday ke din kisiko sad nhi krte ji 🥲..Aapko agr sad kiya h maine to aap mujhe punishment de skti h ji..but plss maaf kar do🙇‍♂️</p>
-            <div style="text-align:center;"><button class="giant-btn" onclick="nextBox(9, 'music9.mp3')">🎥</button></div>
+            <div style="text-align:center;"><button class="giant-btn" onclick="nextBox(9, 'english.mp3')">🎥</button></div>
         </div>
 
         <!-- BOX 9: Video 3 -->
@@ -325,7 +325,7 @@ Aur haan... comeback hamara bhi hoga 😎✨</p>
                 <video controls id="video-3" onplay="pauseBgMusic()" onended="playBgMusic()"><source src="video3.mp4" type="video/mp4"></video>
             </div>
             <p class="calligraphy-red">Shri Krishna hamesha tumhare sath h 🙇‍♂️</p>
-            <div style="text-align:center;"><button class="giant-btn" onclick="nextBox(10, 'music10.mp3')">🌟</button></div>
+            <div style="text-align:center;"><button class="giant-btn" onclick="nextBox(10, 'mood.mp3')">🌟</button></div>
         </div>
 
         <!-- BOX 10: LUDO KNOCKOUT MATCH -->
@@ -351,7 +351,7 @@ Aur haan... comeback hamara bhi hoga 😎✨</p>
                 <div class="ludo-win-card" id="ludo-win-overlay">
                     <p class="calligraphy-gold" style="font-size: 1.3rem; margin-bottom:8px;">SHREYA WINS THE MATCH! 🏆</p>
                     <div class="ludo-win-photo">
-                        <img src="ludo.jpg" alt="Victory Photo">
+                        <img src="photo1.jpg" alt="Victory Photo">
                     </div>
                     <p class="handwritten-text" style="margin-top:10px;">You are always the Champion Bestie! ❤️</p>
                 </div>
@@ -379,7 +379,7 @@ Aur haan... comeback hamara bhi hoga 😎✨</p>
                 <p class="calligraphy-gold" id="wheel-text" style="color:#fff; font-size:1.3rem;">SPIN ME!</p>
             </div>
             <button class="wheel-btn" onclick="spinWheel()">SPIN WHEEL 🎡</button>
-            <div style="text-align:center;"><button class="giant-btn" onclick="nextBox(13, 'sheesha.mp3')">👑</button></div>
+            <div style="text-align:center;"><button class="giant-btn" onclick="nextBox(13, 'sheeeha.mp3')">👑</button></div>
         </div>
 
         <!-- BOX 13: 3D CAROUSEL GALLERY -->
@@ -439,7 +439,7 @@ Aur haan... comeback hamara bhi hoga 😎✨</p>
                 overlay.style.transition = 'opacity 0.5s ease-out';
                 setTimeout(() => {
                     overlay.style.display = 'none';
-                    playTrack('music1.mp3');
+                    playTrack('birthdaysong.mp3');
                 }, 500);
             }, 1500);
         }
@@ -449,6 +449,7 @@ Aur haan... comeback hamara bhi hoga 😎✨</p>
         function playBgMusic() { bgMusic.play(); }
 
         function triggerMegaConfetti() {
+            if (typeof confetti !== 'function') return;
             confetti({ particleCount: 120, spread: 100, origin: { y: 0.6 } });
             confetti({
                 particleCount: 50, spread: 360, ticks: 100, gravity: 0.5, decay: 0.94, startVelocity: 30,
